@@ -1,14 +1,27 @@
 import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ItemDetailContainer from './components/ItemDetailContainer';
+
 
 function App() {
 
   return (
     <div className="App">
+
+      <BrowserRouter>
+
       <NavBar/>
-      <h1 className='text-5xl m-10 text-warning underline'>DREAM BURGER</h1>
-      <ItemListContainer saludo='¡Bienvenido a nuestro e-commerce!'></ItemListContainer>
+      
+      <Routes>
+        <Route path={'/'} element={<ItemListContainer greeting='¡Bienvenido a nuestro e-commerce!'/>}/>
+        <Route path={'/category/:categoryId'} element={<ItemListContainer/>}/>
+        <Route path={'/item/:id'} element={<ItemDetailContainer/>}/>
+      </Routes>
+
+      </BrowserRouter>
+
     </div>
   );
 }
