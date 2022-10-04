@@ -1,39 +1,41 @@
-import ItemDetail from "./ItemDetail";
+// import ItemDetail from "./ItemDetail";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { products } from "./data/products";
 
 const ItemDetailContainer = () => {
 
-    const {id} = useParams()
+    const {id : itemId} = useParams()
 
-    const [products, setProducts] = useState([])
+    const [item, setItem] = useState({})
     
     useEffect(() => {
-        GetProducts()
+
+        GetItem().then( response => {
+            setItem(response)
+        })
+
     }, [])
 
-    const GetProducts = () => {
-        
-        const URL = '../data/products.json';
-        
-        setTimeout(() => {
 
-            fetch(URL)
-                .then(resp => resp.json())
-                .then((data) => {
-                    setProducts(data);
-                })
-            
-        }, 2000);
 
+    const GetItem = () => {
+        
+        return new Promise((resolve) => {
+
+            setTimeout(() => {
+              resolve( products.find( p => p.id === Number(itemId) ) )
+            }, 2000);
+
+        })
     }
 
     return(
         <div>
-            {/* ESTO ME TIENE QUE HACER UN MAP DEL ID AL CUAL YO CLIKIE */}
-            {products.map( i => <ItemDetail key={i.id} {...i}/> ) }
+            <h1>{item.name}</h1>
+            {/* {<ItemDetail key={item.id} {...item}/>} */}
         </div>
     )
-}
 
+}
 export default ItemDetailContainer;

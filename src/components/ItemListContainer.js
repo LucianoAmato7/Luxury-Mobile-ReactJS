@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import ItemList from './ItemList'
+import {products} from './data/products'
 
 const ItemListContainer = ({greeting}) => {
 
-    const [products, setProducts] = useState([])
+    const [prods, setProds] = useState([])
     
     useEffect(() => {
-        GetProducts()
+        GetProducts().then( response =>{
+            setProds(response)
+        })
     }, [])
 
     const GetProducts = () => {
         
-        const URL = '../data/products.json';
-        
-        setTimeout(() => {
-            
-            fetch(URL)
-                .then(resp => resp.json())
-                .then((data) => {
-                    setProducts(data);
-                })
-                
+        return new Promise( resolve => {
+            setTimeout(() => {
+              resolve( products )
             }, 2000);
+          })
 
     }
     
@@ -30,7 +27,7 @@ const ItemListContainer = ({greeting}) => {
             <h1 className='text-5xl m-10 text-black underline'>DREAM BURGER</h1>
             <h2 className="text-3xl m-10 text-black underline">{greeting}</h2>
 
-            <ItemList items={products}/>
+            <ItemList items={prods}/>
 
 
         </div>

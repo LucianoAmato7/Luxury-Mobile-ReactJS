@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 
-function ItemCount({price}) {
+function ItemCount({priceCounter , stockCounter}) {
 
     const [counter, setCounter] = useState(1);
 
-    // SUPONIENDO QUE EL STOCK DEL PRODUCTO ES DE 10U.
-    const [stock, setStock] = useState(10);
+    const [stock, setStock] = useState(stockCounter);
     
     const EventClickAdd = () => {
         
@@ -32,10 +31,10 @@ function ItemCount({price}) {
     }
 
   return (
-    <div className='bg-white w-auto p-1 mt-2'>
+    <div className='bg-white w-auto p-1 my-2'>
 
         <div className='flex flex-row justify-between mx-2'>    
-            <span className='text-black text-2xl p-0.5 ml-2'>$ {price}</span>
+            <span className='text-black text-2xl p-0.5 ml-2'>$ {priceCounter}</span>
             
             <span className='border border-warning bg-white shadow-lg shadow-black-500/50'>
 
