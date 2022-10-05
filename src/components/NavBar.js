@@ -20,9 +20,9 @@ const NavBar = () => {
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0">
-          <li className='mx-3'><Link to='/category/:categoryId' className='active:bg-warning active:text-black hover:scale-125'>HAMBURGUESAS</Link></li>
-          <li className='mx-3'><Link to='/category/:categoryId' className='active:bg-warning active:text-black hover:scale-125'>ACOMPAÑAMIENTOS</Link></li>
-          <li className='mx-3'><Link to='/category/:categoryId' className='active:bg-warning active:text-black hover:scale-125'>BEBIDAS</Link></li>
+          <li className='mx-3'><Link to={`/category/${'hamburguesas'}`} className='active:bg-warning active:text-black hover:scale-125'>HAMBURGUESAS</Link></li>
+          <li className='mx-3'><Link to={`/category/${'acompaniamientos'}`} className='active:bg-warning active:text-black hover:scale-125'>ACOMPAÑAMIENTOS</Link></li>
+          <li className='mx-3'><Link to={`/category/${'bebidas'}`} className='active:bg-warning active:text-black hover:scale-125'>BEBIDAS</Link></li>
           <li className='mx-3'><Link to='' className='active:bg-warning active:text-black hover:scale-125'><CartWidget/></Link></li>
         </ul>
       </div>

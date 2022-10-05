@@ -5,7 +5,7 @@ const Item = ({id, name, price, img}) => {
     
     return(
 
-        <Link to={`/item/:${id}`}>
+        <Link to={`/item/${id}`}>
             <div className="card w-96 bg-white shadow-xl mb-20 mx-5" key={id}>
                 <figure>
                     <img className='w-80 ' src={img} alt={name}/>

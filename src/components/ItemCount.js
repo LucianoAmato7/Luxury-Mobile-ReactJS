@@ -48,7 +48,7 @@ function ItemCount({priceCounter , stockCounter}) {
         </div>    
 
         <div className='flex flex-col'> 
-            <button onClick={OnAdd } className='mt-3 py-1.5 px-7 bg-warning text-black drop-shadow-2xl rounded-md border border-amber-300 text-xl'>Agregar al carrito</button>
+            <button onClick={ OnAdd } className='mt-3 py-1.5 px-7 bg-warning text-black drop-shadow-2xl rounded-md border border-amber-300 text-xl'>Agregar al carrito</button>
             <span className='text-sm p-1'>Disponibles: {stock}</span>
         </div>
         
