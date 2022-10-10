@@ -13,8 +13,8 @@ const ItemDetailContainer = () => {
 
         GetItem(itemId)
             .then( resp => {
-            setLoading(false)
-            setItem(resp)
+                setLoading(false)
+                setItem(resp)
         })
 
     }, [itemId])

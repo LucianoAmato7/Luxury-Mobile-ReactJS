@@ -14,9 +14,10 @@ const ItemListContainer = ({greeting}) => {
     
     useEffect(() => {
 
-        GetProducts(categoryId).then( response =>{
-            setProds(response)
-            setLoading(false)
+        GetProducts(categoryId)
+            .then( response =>{
+                setProds(response)
+                setLoading(false)
         })
 
     }, [categoryId])
@@ -24,8 +25,11 @@ const ItemListContainer = ({greeting}) => {
     const GetProducts = (categoryId) => {
         
         return new Promise( resolve => {
+
             setTimeout(() => {
+
               resolve( categoryId === undefined ? products : products.filter(p => p.category === categoryId) )
+
             }, 2000);
           })
 
