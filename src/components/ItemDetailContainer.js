@@ -1,13 +1,16 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { products } from "./data/products";
-import ItemDetail from "./ItemDetail";
+import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
+import { products } from "./data/products"
+import ItemDetail from "./ItemDetail"
+import { DotSpinner } from '@uiball/loaders'
+
 
 const ItemDetailContainer = () => {
 
     const {id : itemId} = useParams()
     const [loading, setLoading] = useState(true)
     const [item, setItem] = useState()
+
     
     useEffect(() => {
 
@@ -33,9 +36,21 @@ const ItemDetailContainer = () => {
     }
 
     return(
+
         <div>
-            {loading ? <h1 className="text-3xl text-black mt-5">Cargando...</h1> : <ItemDetail key={item.id} item={item}/>}
-        </div>
+            {loading ? 
+
+                <div className='flex justify-center mt-80'>
+                    <DotSpinner 
+                    size={40}
+                    speed={0.9} 
+                    color="black" 
+                    />
+                </div> 
+            
+            : <ItemDetail key={item.id} item={item}/>}
+
+        </div>        
     )
     
 }

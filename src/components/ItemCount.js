@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from './CartContext';
 
-function ItemCount({item, setSelectedAmount, CounterHide}) {
+function ItemCount({item, CounterHide, AddtoCart}) {
 
-    const { AddItem} = useContext(CartContext)
 
     const [counter, setCounter] = useState(1);
 
     const [stock, setStock] = useState(item.stock);
+
+    const { IsInCart } = useContext(CartContext)
     
     const EventClickAdd = () => {
         
@@ -27,23 +28,29 @@ function ItemCount({item, setSelectedAmount, CounterHide}) {
 
             setStock(stock - counter);
 
-            //SETEA LA CANTIDAD SELECCIONADA EN UN ESTADO DENTRO DE "ItemDetail"
-            setSelectedAmount(counter)
-
             //CAMBIA EL ESTADO DEL LOADING DENTRO DE "ItemDetail" PARA MOSTRAR OTRO HTML.
             CounterHide()
+
+            //FUNCION EN "ItemDetail.js" EJECUTA LA LOGICA DEL CONTEXT PARA AGREGAR EL ITEM AL CARRITO
+            AddtoCart(counter)
 
         } else {
             console.log('Stock superado')
         } 
 
-        //AGREGA ITEM AL CARRITO POR CONTEXT
-        //VER LA LOGICA PARA QUE NO SE AGREGUEN MAS DE 1.
-        AddItem( item.name, item.id, item.price, item.img )
+    }
+
+    const IsInCartHandler = (e, id) => { 
+    
+        e.stopPropagation()
+        
+        // Que haga alguna funcion visual como una alerta.
+        IsInCart(id) ? console.log('Esta en carrito') : console.log('No esta en carrito')
 
     }
 
   return (
+
     <div className='bg-white w-auto p-1 my-2'>
 
         <div className='flex flex-row justify-between mx-2'> 
@@ -62,10 +69,14 @@ function ItemCount({item, setSelectedAmount, CounterHide}) {
 
         </div>    
 
-        <div className='flex flex-col'> 
+        <div className='flex flex-col mt-5'> 
 
-            <button onClick={ OnAdd } className='my-3 py-1.5 px-7 bg-warning text-black drop-shadow-2xl rounded-md border border-amber-300 text-2xl w-1/2 mx-auto hover:scale-110'>
+            <button onClick={ OnAdd } className='mb-3 py-1.5 px-7 bg-warning text-black drop-shadow-2xl rounded-md border border-amber-300 text-2xl w-1/2 mx-auto hover:scale-110'>
                 Agregar al carrito
+            </button>
+
+            <button onClick={ (e) => {IsInCartHandler(e, item.id)} } className='mb-3 py-1.5 px-5 bg-warning text-black drop-shadow-2xl rounded-md border border-amber-300 text-xl w-auto mx-auto hover:scale-110'>
+                ¿ Se encuentra en carrito ?
             </button>
 
             <span className='text-sm p-1'>Disponibles: {stock}</span>

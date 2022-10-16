@@ -6,14 +6,15 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import { CartProvider } from './components/CartContext';
 
-
 function App() {
+
+  // JSON.parse(localStorage.getItem('cart'))
 
   return (
     <div className="App">
 
-      {/* <CartProvider> */}
-
+      <CartProvider>
+        
         <BrowserRouter>
 
           <NavBar/>
@@ -26,8 +27,9 @@ function App() {
           </Routes>
 
         </BrowserRouter>
+      
+      </CartProvider>
 
-      {/* </CartProvider> */}
 
     </div>
   )

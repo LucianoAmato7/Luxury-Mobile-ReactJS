@@ -23,7 +23,7 @@ const NavBar = () => {
           <li className='mx-3'><Link to={`/category/${'hamburguesas'}`} className='active:bg-warning active:text-black hover:scale-125'>HAMBURGUESAS</Link></li>
           <li className='mx-3'><Link to={`/category/${'acompaniamientos'}`} className='active:bg-warning active:text-black hover:scale-125'>ACOMPAÑAMIENTOS</Link></li>
           <li className='mx-3'><Link to={`/category/${'bebidas'}`} className='active:bg-warning active:text-black hover:scale-125'>BEBIDAS</Link></li>
-          <li className='mx-3'><Link to='' className='active:bg-warning active:text-black hover:scale-125'><CartWidget/></Link></li>
+          <li className='mx-3'><Link to='/cart' className='active:bg-warning active:text-black hover:scale-125'><CartWidget/></Link></li>
         </ul>
       </div>
     </div>

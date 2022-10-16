@@ -1,15 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "./CartContext";
 import ItemCount from "./ItemCount";
 
 const ItemDetail = ({item}) => {
-
-    //CANTIDAD SELECCIONADA DEL PRODUCTO SETEADA EN "ItemCount"
-    const [selectedAmount, setSelectedAmount] = useState(0)
-
-    console.log(`cantidad seleccionada: ${selectedAmount}`);
-
-    //AQUI PODRIA IR LA FUNCION DE AGREGAR AL CONTEXTO EL ITEM Y LA CANTIDAD SELECCIONADA: (item, selectedAmount)
    
     const [loading, setLoading] = useState(true)
 
@@ -22,6 +16,17 @@ const ItemDetail = ({item}) => {
         setLoading(true)
 
     }
+
+    //CONTEXT
+    const { AddItem } = useContext(CartContext)
+
+    //AGREGA ITEM AL CARRITO POR CONTEXT
+    const AddtoCart = (counter) => {   
+
+        AddItem( item, counter )
+
+    }
+
 
     return(
 
@@ -38,8 +43,8 @@ const ItemDetail = ({item}) => {
             </div>
 
             {loading ? 
-            
-                <ItemCount item={item} setSelectedAmount={setSelectedAmount} CounterHide={CounterHide}/> :
+        
+                <ItemCount item={item} CounterHide={ CounterHide } AddtoCart={ AddtoCart }/> :
 
                 <div className="flex flex-row text-xl text-black justify-center">
                 
