@@ -1,45 +1,72 @@
 import React, { useState, useEffect } from 'react'
 import ItemList from './ItemList'
-import {products} from './data/products'
 import { useParams } from 'react-router-dom'
 import { DotSpinner } from '@uiball/loaders'
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 
 
 const ItemListContainer = ({greeting}) => {
 
-    const {categoryId} = useParams()
+    const {brandId} = useParams()
 
     const [prods, setProds] = useState([])
 
     const [loading, setLoading] = useState(true)
 
-    
     useEffect(() => {
 
-        GetProducts(categoryId)
-            .then( response =>{
-                setProds(response)
-                setLoading(false)
-        })
+        GetProducts(brandId)
 
-    }, [categoryId])
+    }, [brandId])
 
-    const GetProducts = (categoryId) => {
+
+    const GetProducts = (brandId) => {
         
-        return new Promise( resolve => {
+        const db = getFirestore() 
 
-            setTimeout(() => {
+        const prodsRef = collection( db, 'products')
+        
+        //SOLO SI SE RECIBE EL PARAMETRO DE CATEGORIA LO UTILIZA EN UN WHERE. DE LO CONTRARIO NO APLICA EL FILTRO.
 
-              resolve( categoryId === undefined ? products : products.filter(p => p.category === categoryId) )
+        if (brandId) {
+            
+            const prodsFilter = query( prodsRef, where( 'brand', '==' , brandId ) ) 
 
-            }, 2000);
-          })
+            getDocs(prodsFilter)
+
+                .then( snapshot => {
+   
+                    const data = snapshot.docs.map( e => ( { id: e.id, ...e.data() }) )
+
+                    setProds( data )
+                    setLoading(false)
+
+                })
+            
+        } else {
+
+            getDocs(prodsRef)
+
+                .then( snapshot => {
+
+                    setTimeout(() => {
+                        
+                        const data = snapshot.docs.map( e => ( { id: e.id, ...e.data() }) )
+
+                        setProds( data )
+                        setLoading(false)
+
+                    }, 2000)
+                })
+
+        }
 
     }
     
     return(
+
         <div>
-            <h1 className='text-5xl m-10 text-black underline'>DREAM BURGER</h1>
+            <h1 className='text-5xl mt-16 text-black underline italic'>LUXURY CRYSTAL</h1>
             <h2 className="text-3xl m-10 text-black underline">{greeting}</h2>
 
             {loading ?  
@@ -54,8 +81,8 @@ const ItemListContainer = ({greeting}) => {
 
             : <ItemList items={prods}/> }
 
-
         </div>
+        
     )
     
 }

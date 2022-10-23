@@ -6,10 +6,9 @@
 
 body {
   min-height: 100vh;
-  background-color: #fdb842e5;
+  background-image: radial-gradient(circle at 11.64% 27.85%, #a8aaff 0, #7d91fd 25%, #3c78f2 50%, #0062e7 75%, #004fdd 100%);;
   margin: 0;
-  font-family: 'Oswald', sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Oswald', sans-serif;  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 

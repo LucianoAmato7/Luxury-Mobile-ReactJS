@@ -1,29 +1,23 @@
 import CartWidget from './CartWidget';
-import logo from '../img/logondb.png';
-import navBackground from '../img/navBackground.png';
 import {Link} from 'react-router-dom';
 
 
 const NavBar = () => {
 
-  const navBarStyle = {
-    backgroundImage: `url( ${navBackground} )`,
-    backgroundSize: 'cover'
-  }
 
   return (
-    <div className="navbar text-warning text-3xl italic sticky top-0 z-50" style={navBarStyle}>
+    <div className="navbar text-white text-3xl italic sticky top-0 z-50 bg-blue-900">
       <div className="flex-1">
         <Link to='/'>
-          <img src={logo} alt='logo Dream-Burger' className='w-40 p-1'></img>
+          <p className='lg:text-6xl md:text-4xl m-5'>Luxury Crystal</p>
         </Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0">
-          <li className='mx-3'><Link to={`/category/${'hamburguesas'}`} className='active:bg-warning active:text-black hover:scale-125'>HAMBURGUESAS</Link></li>
-          <li className='mx-3'><Link to={`/category/${'acompaniamientos'}`} className='active:bg-warning active:text-black hover:scale-125'>ACOMPAÑAMIENTOS</Link></li>
-          <li className='mx-3'><Link to={`/category/${'bebidas'}`} className='active:bg-warning active:text-black hover:scale-125'>BEBIDAS</Link></li>
-          <li className='mx-3'><Link to='/cart' className='active:bg-warning active:text-black hover:scale-125'><CartWidget/></Link></li>
+          <li className='mx-5'><Link to={`/brand/${'Samsung'}`} className='active:bg-warning active:text-black hover:scale-125'>SAMSUNG</Link></li>
+          <li className='mx-5'><Link to={`/brand/${'Apple'}`} className='active:bg-warning active:text-black hover:scale-125'>APPLE</Link></li>
+          <li className='mx-5'><Link to={`/brand/${'Xiaomi'}`} className='active:bg-warning active:text-black hover:scale-125'>XIAOMI</Link></li>
+          <li className='mx-12'><Link to='/cart' className='active:bg-warning active:text-black hover:scale-125'><CartWidget/></Link></li>
         </ul>
       </div>
     </div>
@@ -33,4 +27,3 @@ const NavBar = () => {
 
 export default NavBar;
 
-// SE HA UTILIZADO TAILWIND Y DAISYUI.

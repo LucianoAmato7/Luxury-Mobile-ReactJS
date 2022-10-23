@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { products } from "./data/products"
 import ItemDetail from "./ItemDetail"
 import { DotSpinner } from '@uiball/loaders'
+import { doc, getDoc, getFirestore } from "firebase/firestore"
 
 
 const ItemDetailContainer = () => {
@@ -10,29 +10,29 @@ const ItemDetailContainer = () => {
     const {id : itemId} = useParams()
     const [loading, setLoading] = useState(true)
     const [item, setItem] = useState()
-
     
     useEffect(() => {
 
         GetItem(itemId)
-            .then( resp => {
-                setLoading(false)
-                setItem(resp)
-        })
 
     }, [itemId])
 
     const GetItem = (itemId) => {
         
-        return new Promise((resolve) => {
+        const db = getFirestore()
+        
+        const prodRef = doc( db, 'products', itemId)
 
-            setTimeout(() => {
+        getDoc( prodRef )
+        
+        .then( snapshot => {
+                            
+            setItem({id: snapshot.id, ...snapshot.data()})
 
-              resolve( products.find( p => p.id === Number(itemId)))
+            setLoading(false)
 
-            }, 2000);
+        } )
 
-        })
     }
 
     return(

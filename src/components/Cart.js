@@ -31,7 +31,9 @@ const Cart = () => {
             
             { cart.length > 0 ?
 
-                (  cart.map( p => 
+                <>  
+                
+                    {cart.map( p => 
 
                     <li key={p.id} className='flex flex-row justify-between border-y-4 border-black items-center m-10 pr-10'> 
 
@@ -47,7 +49,7 @@ const Cart = () => {
                             <BsTrashFill/>
                         </button> 
 
-                    </li>),
+                    </li>)}
 
                     <div className="flex flex-row justify-around">
 
@@ -60,16 +62,21 @@ const Cart = () => {
                         </div>
                     
                     </div> 
-                ) : 
-
-                (<h2 className="text-3xl text-black">¡AUN NO HA AGREGADO PRODUCTOS!</h2>,
-
-                <Link to={'/'}>
-                    <button className="p-5 text-black text-3xl m-5 rounded-lg bg-orange-500 border-black">
-                        VER PRODUCTOS
-                    </button>
-                </Link>)
+                    
+                </> 
                 
+                : 
+
+                <>  
+                    <h2 className="text-3xl text-black">¡AUN NO HA AGREGADO PRODUCTOS!</h2>
+
+                    <Link to={'/'}>
+                        <button className="p-5 text-black text-3xl m-5 rounded-lg bg-blue-400 border-black">
+                            VER PRODUCTOS
+                        </button>
+                    </Link>
+
+                </>
             }
 
         </div>

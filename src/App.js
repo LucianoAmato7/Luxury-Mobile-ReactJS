@@ -8,8 +8,6 @@ import { CartProvider } from './components/CartContext';
 
 function App() {
 
-  // JSON.parse(localStorage.getItem('cart'))
-
   return (
     <div className="App">
 
@@ -21,7 +19,7 @@ function App() {
           
           <Routes>
             <Route path={'/'} element={<ItemListContainer greeting='¡Bienvenido a nuestro e-commerce!'/>}/>
-            <Route path={'/category/:categoryId'} element={<ItemListContainer/>}/>
+            <Route path={'/brand/:brandId'} element={<ItemListContainer/>}/>
             <Route path={'/item/:id'} element={<ItemDetailContainer/>}/>
             <Route path={'/cart'} element={<Cart/>}/>
           </Routes>

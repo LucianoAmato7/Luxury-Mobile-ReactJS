@@ -4,7 +4,7 @@ const CartWidget = () => {
 
     return(
         <div>
-            <MdShoppingCart className='text-warning text-5xl active:text-black'/>
+            <MdShoppingCart className='text-white text-5xl active:text-black'/>
         </div>
     )
 }

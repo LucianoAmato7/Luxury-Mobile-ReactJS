@@ -8,8 +8,6 @@ const CartProvider = ( {children} ) => {
     const [cart, setCart] = useState([])
 
     console.table(cart);
-
-    // localStorage.setItem('cart', JSON.stringify(cart))
     
     const AddItem = ( item, counter ) => {
 
