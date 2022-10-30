@@ -1,4 +1,6 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CartContext = createContext([])
 
@@ -7,22 +9,70 @@ const CartProvider = ( {children} ) => {
 
     const [cart, setCart] = useState([])
 
-    console.table(cart);
+    useEffect(() => {
+    
+        const cartLS = JSON.parse(localStorage.getItem('cart')) ?? []
+
+        setCart( cartLS )
+
+    }, [])
+
+    useEffect(() => {
+
+        localStorage.setItem( "cart", JSON.stringify(cart) )
+
+    }, [cart])
+    
+
+    const Total = () => {
+
+        return cart.reduce( (acum, prod) => acum + prod.price * prod.quantity, 0 )
+
+    }
+
     
     const AddItem = ( item, counter ) => {
 
         if ( cart.some( p => p.id === item.id) ) {   
 
-            console.log('Este producto ya se encuentra en el carrito.') 
+            const alertW = () => toast.warn('! Ya se encuentra en carrito !', {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
 
+            alertW()
+                            
         } else {
-        
+            
             setCart( cart => cart.concat( {...item, quantity: counter } ) )
+
+            const alert = () => toast.success('¡ Producto agregado ! ', {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+
+            alert()
     
         } 
     }
 
-    const RemoveItem = ( id ) => setCart(cart.filter(p => p.id !== id))
+    const RemoveItem = ( id ) => {
+
+        setCart( cart.filter(p => p.id !== id) )
+
+    }
 
 
     const IsInCart = ( id ) => {
@@ -32,7 +82,17 @@ const CartProvider = ( {children} ) => {
     }
 
 
-    const Clear = () => setCart([])
+    const Clear = () => {
+
+        setCart([])
+
+    }
+
+    //SEPARADOR DE MILES
+    const format = (num) => {
+        var reg=/\d{1,3}(?=(\d{3})+$)/g; 
+        return (num + '').replace(reg, '$&,');
+    }
 
 
     const Context = {
@@ -40,7 +100,10 @@ const CartProvider = ( {children} ) => {
         AddItem,
         IsInCart,
         Clear,
-        RemoveItem
+        RemoveItem,
+        setCart,
+        Total,
+        format
     }
     
     
@@ -48,6 +111,20 @@ const CartProvider = ( {children} ) => {
 
         <CartContext.Provider value={ Context }>
             {children}
+
+            <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            />
+
         </CartContext.Provider>
 
     )

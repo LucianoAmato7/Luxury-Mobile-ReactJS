@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from './CartContext';
 
-function ItemCount({item, CounterHide, AddtoCart}) {
-
+function ItemCount({ item, CounterHide, AddtoCart }) {
+    
 
     const [counter, setCounter] = useState(1);
 
     const [stock, setStock] = useState(item.stock);
 
-    const { IsInCart } = useContext(CartContext)
+    const { IsInCart, format } = useContext(CartContext)
     
     const EventClickAdd = () => {
         
@@ -55,7 +55,7 @@ function ItemCount({item, CounterHide, AddtoCart}) {
 
         <div className='flex flex-row justify-between m-auto w-11/12 px-5'> 
 
-            <span className='text-black text-3xl p-0.5'>$ {item.price}</span>
+            <span className='text-black text-3xl p-0.5'>$ {format(item.price)}</span>
             
             <span className='border border-warning bg-white shadow-lg shadow-black-500/50'>
 

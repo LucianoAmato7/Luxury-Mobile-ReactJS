@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
 
-    const { cart, RemoveItem, Clear } = useContext(CartContext)
+    const { cart, RemoveItem, Clear, Total, format } = useContext(CartContext)
 
     const RemoveHandler = (e, id) => {
 
@@ -23,55 +23,82 @@ const Cart = () => {
 
     }
 
+
     return(
         
-        <div className="my-10 pb-10">
+        <div className="lg:mx-40 mt-20 pb-10">
         
-            <h2 className="my-10 text-5xl text-black">CARRITO</h2>
             
             { cart.length > 0 ?
 
                 <>  
-                
-                    {cart.map( p => 
 
-                    <li key={p.id} className='flex flex-row justify-between border-y-4 border-black items-center m-10 pr-10'> 
+                    <div className="m-10 align-middle flex justify-center">
 
-                        <img src={p.img} alt={p.name} className='w-80'/>
+                        <table className="w-11/12 text-black">
 
-                        <div className="text-5xl text-black">{p.name}</div> 
+                            <thead className="border-b border-black text-3xl">
 
-                        <div className="text-5xl text-black">{p.quantity} u.</div>  
+                                <tr>
+                                    <th></th>
+                                    <th>Modelo</th>
+                                    <th>Unidades</th>
+                                    <th>Monto</th>
+                                </tr>
 
-                        <div className="text-5xl text-black">$ {p.price}</div> 
+                            </thead>
 
-                        <button onClick={ (e) => { RemoveHandler(e, p.id) } }   className="text-5xl text-red-600">
-                            <BsTrashFill/>
-                        </button> 
+                            <tbody>
 
-                    </li>)}
+                                {cart.map( p => 
 
-                    <div className="flex flex-row justify-around">
+                                    <tr className='border-b border-black text-3xl' key={p.id}>
+                                        <td className="w-1/4">
+                                            <img src={p.img} className='w-1/2' alt={p.name}></img>
+                                        </td>
+                                        <td>{p.name}</td>
+                                        <td>{p.quantity}</td>
+                                        <td>{ format(p.price) }</td>
+                                        <td>
+                                            <button onClick={ (e) => { RemoveHandler(e, p.id) } } className="text-4xl text-red-600 opacity-80 ml-5">
+                                                <BsTrashFill/>
+                                            </button>
+                                        </td>
+                                    </tr>
 
-                        <button onClick={ (e) => { ClearHandler(e) } } className='text-4xl text-black border-black px-5 my-4 rounded-lg bg-orange-500'> VACIAR CARRITO </button>
+                                )}
+
+                            </tbody>
+                        </table>
+
+                    </div>   
+                    
+                    <div className="flex flex-row justify-between w-10/12 m-auto">
+
+                        <button onClick={ (e) => { ClearHandler(e) } } className='text-3xl text-black border-black px-5 my-9 rounded-lg bg-blue-400 drop-shadow-lg'> VACIAR CARRITO </button>
                         
-                        <div className="py-12 mx-9">
+                        <div className="py-12">
 
-                            <p className="text-black text-6xl" >TOTAL $ {cart.reduce((acum, prod) => acum + prod.price * prod.quantity, 0)}</p>
+                            <p className="text-black lg:text-5xl md:text-3xl" >Total $ { format( Total() ) }</p>
                                 
                         </div>
                     
                     </div> 
-                    
+
+                    <Link to={'/Order'}>    
+                        <div>
+                            <button className="p-5 text-black text-5xl m-5 rounded-lg bg-blue-400 border-black drop-shadow-lg">CONTINUAR CON LA COMPRA</button>
+                        </div>
+                    </Link>
                 </> 
                 
                 : 
 
                 <>  
-                    <h2 className="text-3xl text-black">¡AUN NO HA AGREGADO PRODUCTOS!</h2>
+                    <h2 className="text-3xl text-black m-10 border-y-2 border-black p-16 mt-28">¡AUN NO HA AGREGADO PRODUCTOS EN EL CARRITO!</h2>
 
                     <Link to={'/'}>
-                        <button className="p-5 text-black text-3xl m-5 rounded-lg bg-blue-400 border-black">
+                        <button className="p-5 text-black text-3xl m-10 rounded-lg bg-blue-400 border-black">
                             VER PRODUCTOS
                         </button>
                     </Link>

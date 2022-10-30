@@ -11,4 +11,3 @@ const CartWidget = () => {
 
 export default CartWidget
 
-// SE HA UTILIZADO REACT ICONS.

@@ -48,15 +48,11 @@ const ItemListContainer = ({greeting}) => {
             getDocs(prodsRef)
 
                 .then( snapshot => {
-
-                    setTimeout(() => {
                         
-                        const data = snapshot.docs.map( e => ( { id: e.id, ...e.data() }) )
+                    const data = snapshot.docs.map( e => ( { id: e.id, ...e.data() }) )
 
-                        setProds( data )
-                        setLoading(false)
-
-                    }, 2000)
+                    setProds( data )
+                    setLoading(false)
                 })
 
         }
@@ -66,8 +62,8 @@ const ItemListContainer = ({greeting}) => {
     return(
 
         <div>
-            <h1 className='text-5xl mt-16 text-black underline italic'>LUXURY CRYSTAL</h1>
-            <h2 className="text-3xl m-10 text-black underline">{greeting}</h2>
+            
+            <h1 className="text-5xl mt-16 text-black underline italic">{greeting}</h1>
 
             {loading ?  
 
