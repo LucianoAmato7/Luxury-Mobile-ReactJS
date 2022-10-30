@@ -62,7 +62,7 @@ const ItemListContainer = ({greeting}) => {
     return(
 
         <div>
-            
+
             <h1 className="text-5xl mt-16 text-black underline italic">{greeting}</h1>
 
             {loading ?  
@@ -75,7 +75,7 @@ const ItemListContainer = ({greeting}) => {
                     />
                 </div>
 
-            : <ItemList items={prods}/> }
+            : <ItemList items={prods} brand={brandId}/> }
 
         </div>
         

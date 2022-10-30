@@ -2,13 +2,17 @@ import Item from "./Item";
 
 
 
-const ItemList = ({items}) => { 
+const ItemList = ({items, brand}) => { 
     return(
-        <div className='justify-around flex flex-row flex-wrap mt-20 mx-20'>
+        <>
+            <h2 className="text-black text-6xl italic underline">{brand}</h2>
+            <div className='justify-around flex flex-row flex-wrap mt-20 mx-20'>
 
-            {items.map( i => <Item key={i.id} {...i}/> ) }
 
-        </div>
+                {items.map( i => <Item key={i.id} {...i}/> ) }
+
+            </div>
+        </>   
     )
 }   
 
