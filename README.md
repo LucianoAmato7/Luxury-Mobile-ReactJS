@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Luxury Mobile
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicación desplegada en Netlify [Luxury Mobile](https://luxurymobile.netlify.app/).
 
-## Available Scripts
+`Luxury Mobile` se trata de un e-commerce de algunos de los últimos modelos de Smartphone que el mercado tiene para ofrecer.
 
-In the project directory, you can run:
+Se ha utilizado el servicio de `Firestore Database` que brinda `Firebase` para la creación de una colección de productos y ordenes de compra que interactual dinamicamente con la aplicación.
+
+El diseño `Responsive` de la aplicación aún se encuentra en desarrollo, por lo cual su visualización solo será óptima en dispositivos con resoluciones iguales o mayores a 1024x600px.
+
+
+### `Dependencias utilizadas`
+
+`@emotion/react:` 11.10.5,
+`@emotion/styled:` 11.10.5,
+`@mui/material:` 5.10.11,
+`@react-icons/all-files:` 4.1.0,
+`@testing-library/jest-dom:` 5.16.5,
+`@testing-library/react:` 13.4.0,
+`@testing-library/user-event:` 13.5.0,
+`@uiball/loaders:` 1.2.6,
+`bootstrap:` 5.2.1,
+`bootstrap-icons:` 1.9.1,
+`daisyui:` 2.28.0,
+`firebase`: 9.12.1,
+`react:` 18.2.0,
+`react-bootstrap:` 2.5.0,
+`react-dom:` 18.2.0,
+`react-icons:` 4.4.0,
+`react-router-dom:` 6.4.1,
+`react-scripts:` 5.0.1,
+`react-toastify:` 9.0.8,
+`reactstrap:` 9.1.4,
+`web-vitals:` 2.1.4
+
+Este proyecto fue iniciado con [Create React App](https://github.com/facebook/create-react-app).
+
+Para aprender React, echa un vistazo a la [Documentacion de React](https://reactjs.org/).
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Lo puedes ejecutar en el directorio del proyecto.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Ejecuta la aplicación en el modo de desarrollo..\
+Abre [http://localhost:3000](http://localhost:3000) para verlo en tu navegador.
 
-### `npm test`
+La página se volverá a cargar cuando realice cambios.\
+También puede ver errores en la consola.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
