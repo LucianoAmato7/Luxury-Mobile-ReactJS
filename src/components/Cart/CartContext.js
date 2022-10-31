@@ -35,24 +35,7 @@ const CartProvider = ( {children} ) => {
 
         if ( cart.some( p => p.id === item.id) ) {   
 
-            const alertW = () => toast.warn('! Ya se encuentra en carrito !', {
-            position: "bottom-right",
-            autoClose: 2000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            });
-
-            alertW()
-                            
-        } else {
-            
-            setCart( cart => cart.concat( {...item, quantity: counter } ) )
-
-            const alert = () => toast.success('¡ Producto agregado ! ', {
+            toast.warn('! Ya se encuentra en carrito !', {
                 position: "bottom-right",
                 autoClose: 2000,
                 hideProgressBar: true,
@@ -63,7 +46,22 @@ const CartProvider = ( {children} ) => {
                 theme: "dark",
             });
 
-            alert()
+                            
+        } else {
+            
+            setCart( cart => cart.concat( {...item, quantity: counter } ) )
+
+            toast.success('¡ Producto agregado ! ', {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+
     
         } 
     }
@@ -71,7 +69,7 @@ const CartProvider = ( {children} ) => {
     const RemoveItem = ( id ) => {
 
         setCart( cart.filter(p => p.id !== id) )
-
+    
     }
 
 

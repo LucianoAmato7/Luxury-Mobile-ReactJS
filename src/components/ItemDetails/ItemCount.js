@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
-import { CartContext } from './CartContext';
+import { toast, ToastContainer } from 'react-toastify';
+import { CartContext } from '../Cart/CartContext';
 
 function ItemCount({ item, CounterHide, AddtoCart }) {
     
@@ -44,8 +45,34 @@ function ItemCount({ item, CounterHide, AddtoCart }) {
     
         e.stopPropagation()
         
-        // Que haga alguna funcion visual como una alerta.
-        IsInCart(id) ? console.log('Esta en carrito') : console.log('No esta en carrito')
+        if ( IsInCart(id) ) {
+
+            toast.success('! Ya se encuentra en carrito ¡', {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+
+        } else {
+
+            toast.warning('! No se encuentra en carrito ¡', {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+
+        } 
+             
 
     }
 
@@ -80,7 +107,21 @@ function ItemCount({ item, CounterHide, AddtoCart }) {
             </button>
 
             <span className='text-sm p-1'>Disponibles: {stock}</span>
+
         </div>
+
+        <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        />
         
     </div>
   )

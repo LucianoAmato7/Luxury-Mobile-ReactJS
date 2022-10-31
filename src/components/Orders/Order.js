@@ -1,7 +1,7 @@
 import { addDoc, collection, getFirestore } from "firebase/firestore"
 import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
-import { CartContext } from "./CartContext"
+import { CartContext } from "../Cart/CartContext"
 import Form from "./Form"
 import Success from "./Success"
 
@@ -86,7 +86,7 @@ const Order = () => {
 
             <div> 
                 
-                <div className="flex flex-row">
+                <div className="flex flex-row pb-20">
 
                     <Form FormFn={ FormFn }  />
 
@@ -103,6 +103,8 @@ const Order = () => {
                                     <p className="text-xl"> <strong> {p.brand} </strong> </p>
                                     <p>{p.name}</p>
                                 </div>    
+
+                                <span className="text-xl">{p.quantity} u.</span>
 
                                 <span className="text-xl">${format(p.price)}</span>
 

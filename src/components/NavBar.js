@@ -2,7 +2,8 @@ import CartWidget from './CartWidget';
 import {Link} from 'react-router-dom';
 import { Badge } from '@mui/material';
 import { useContext } from 'react';
-import { CartContext } from './CartContext';
+import { CartContext } from './Cart/CartContext';
+import logoLM from '../img/logoLM.png'
 
 const NavBar = () => {
 
@@ -19,9 +20,11 @@ const NavBar = () => {
 
       <div className="flex-1">
 
-        <Link to='/'>
+        <Link to='/' className='flex flex-row'>
 
-          <p className='lg:text-6xl md:text-4xl m-5'>Luxury Mobile</p>
+          <p className='lg:text-6xl md:text-4xl m-5 self-center'>Luxury Mobile</p>
+
+          <img src={logoLM} alt='Mano sosteniendo un teléfono inteligente' className='w-24'/>
 
         </Link>
 
@@ -38,11 +41,17 @@ const NavBar = () => {
           <li className='mx-5'><Link to={`/brand/${'Xiaomi'}`} className='active:bg-white active:text-black hover:scale-125'>XIAOMI</Link></li>
           
           <li className='mx-12'>
+
             <Link to='/cart' className='active:bg-white active:text-black hover:scale-125'>
+
               <Badge badgeContent={ TotalQuantity() } color="error">
-                  <CartWidget/>
+
+                <CartWidget/>
+
               </Badge>
+
             </Link>
+
           </li>
           
         </ul>

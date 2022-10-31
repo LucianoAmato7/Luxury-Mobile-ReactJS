@@ -6,7 +6,7 @@ const Form = ( { FormFn } ) => {
 
     return (
 
-        <div className="flex flex-col mt-24 justify-between lg:ml-60 text-black text-xl p-10 w-2/5 text-center bg-blue-800 bg-opacity-50 rounded-3xl shadow-2xl">
+        <div className="flex flex-col mt-12 justify-between lg:ml-60 text-black text-xl p-10 w-2/5 text-center bg-blue-800 bg-opacity-50 rounded-3xl shadow-2xl">
 
             <h2 className="text-black lg:text-2xl md:text-xl mb-6">
                 ¡ Completa el formulario para finalizar la compra !

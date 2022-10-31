@@ -26,14 +26,13 @@ const Cart = () => {
 
     return(
         
-        <div className="lg:mx-40 mt-20 pb-10">
-        
+        <div className="lg:mx-40 mt-4 pb-10">
             
             { cart.length > 0 ?
 
-                <>  
+                <div className="pb-5 mt-10 shadow-2xl border-black rounded-2xl border">  
 
-                    <div className="m-10 align-middle flex justify-center">
+                    <div className="mt-9 align-middle flex justify-center">
 
                         <table className="w-11/12 text-black">
 
@@ -54,11 +53,11 @@ const Cart = () => {
 
                                     <tr className='border-b border-black text-3xl' key={p.id}>
                                         <td className="w-1/4">
-                                            <img src={p.img} className='w-1/2' alt={p.name}></img>
+                                            <img src={p.img} className='w-1/3' alt={p.name}></img>
                                         </td>
                                         <td>{p.name}</td>
                                         <td>{p.quantity}</td>
-                                        <td>{ format(p.price) }</td>
+                                        <td>$ { format(p.price) }</td>
                                         <td>
                                             <button onClick={ (e) => { RemoveHandler(e, p.id) } } className="text-4xl text-red-600 opacity-80 ml-5">
                                                 <BsTrashFill/>
@@ -87,14 +86,14 @@ const Cart = () => {
 
                     <Link to={'/Order'}>    
                         <div>
-                            <button className="p-5 text-black text-5xl m-5 rounded-lg bg-blue-400 border-black drop-shadow-lg">CONTINUAR CON LA COMPRA</button>
+                            <button className="p-5 text-black text-5xl m-2 rounded-lg bg-blue-400 border-black drop-shadow-lg">CONTINUAR CON LA COMPRA</button>
                         </div>
                     </Link>
-                </> 
+                </div> 
                 
                 : 
 
-                <>  
+                <div className="shadow-2xl border-black rounded-2xl border-2">  
                     <h2 className="text-3xl text-black m-10 border-y-2 border-black p-16 mt-28">¡AUN NO HA AGREGADO PRODUCTOS EN EL CARRITO!</h2>
 
                     <Link to={'/'}>
@@ -103,7 +102,7 @@ const Cart = () => {
                         </button>
                     </Link>
 
-                </>
+                </div>
             }
 
         </div>

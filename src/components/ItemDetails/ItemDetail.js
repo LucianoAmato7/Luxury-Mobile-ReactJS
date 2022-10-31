@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "./CartContext";
+import { CartContext } from "../Cart/CartContext";
 import ItemCount from "./ItemCount";
 import Specs from "./Specs";
 
@@ -31,7 +31,7 @@ const ItemDetail = ({item}) => {
 
     return(
 
-        <div className="bg-white my-12 border rounded-xl lg:w-2/5 md:w-1/2 sm:w-4/5 m-auto shadow-2xl">
+        <div className="bg-white my-3 border rounded-xl lg:w-2/5 md:w-1/2 sm:w-4/5 mx-auto shadow-2xl">
 
             <div className="m-2 flex flex-col justify-center">
 
@@ -72,6 +72,7 @@ const ItemDetail = ({item}) => {
             }
 
         </div>
+
             
     )
 }
