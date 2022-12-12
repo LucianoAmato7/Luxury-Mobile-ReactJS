@@ -26,11 +26,11 @@ const Cart = () => {
 
     return(
         
-        <div className="lg:mx-40 mt-4 pb-10">
+        <div className="lg:mx-40 mx-4">
             
             { cart.length > 0 ?
 
-                <div className="pb-5 mt-10 shadow-2xl border-black rounded-2xl border">  
+                <div className="pb-5 mt-10 shadow-2xl border-black rounded-2xl border-2">  
 
                     <div className="mt-9 align-middle flex justify-center">
 
@@ -38,10 +38,10 @@ const Cart = () => {
 
                             <thead className="border-b border-black text-3xl">
 
-                                <tr>
+                                <tr className="sm:text-3xl text-base">
                                     <th></th>
                                     <th>Modelo</th>
-                                    <th>Unidades</th>
+                                    <th>u.</th>
                                     <th>Monto</th>
                                 </tr>
 
@@ -51,15 +51,18 @@ const Cart = () => {
 
                                 {cart.map( p => 
 
-                                    <tr className='border-b border-black text-3xl' key={p.id}>
+                                    <tr className='border-b border-black sm:text-3xl text-xs' key={p.id}>
                                         <td className="w-1/4">
-                                            <img src={p.img} className='w-1/3' alt={p.name}></img>
+                                            <img src={p.img} className='w-3/4 sm:w-2/3 inline hover:scale-110' alt={p.name}></img>
                                         </td>
                                         <td>{p.name}</td>
-                                        <td>{p.quantity}</td>
+                                        <td className="font-bold">{p.quantity}</td>
                                         <td>$ { format(p.price) }</td>
                                         <td>
-                                            <button onClick={ (e) => { RemoveHandler(e, p.id) } } className="text-4xl text-red-600 opacity-80 ml-5">
+                                            <button 
+                                                onClick={ (e) => { RemoveHandler(e, p.id) } } 
+                                                className="sm:text-4xl text-2xl text-red-600 opacity-80 ml-5"
+                                            >
                                                 <BsTrashFill/>
                                             </button>
                                         </td>
@@ -72,13 +75,18 @@ const Cart = () => {
 
                     </div>   
                     
-                    <div className="flex flex-row justify-between w-10/12 m-auto">
+                    <div className="flex flex-row justify-around items-center">
 
-                        <button onClick={ (e) => { ClearHandler(e) } } className='text-3xl text-black border-black px-5 my-9 rounded-lg bg-blue-400 drop-shadow-lg'> VACIAR CARRITO </button>
+                        <button 
+                            onClick={ (e) => { ClearHandler(e) } } 
+                            className='transition ease-in-out delay-150 sm:text-3xl text-base text-black border-black sm:px-3 h-1/4 p-2 rounded-lg bg-blue-400 drop-shadow-lg hover:scale-110'
+                        >
+                            VACIAR CARRITO 
+                        </button>
                         
                         <div className="py-12">
 
-                            <p className="text-black lg:text-5xl md:text-3xl" >Total $ { format( Total() ) }</p>
+                            <span className="text-black sm:text-4xl text-base" >Total $ { format( Total() ) }</span>
                                 
                         </div>
                     
@@ -86,18 +94,27 @@ const Cart = () => {
 
                     <Link to={'/Order'}>    
                         <div>
-                            <button className="p-5 text-black text-5xl m-2 rounded-lg bg-blue-400 border-black drop-shadow-lg">CONTINUAR CON LA COMPRA</button>
+                            <button 
+                                className="transition ease-in-out delay-150 sm:p-5 p-2 text-black sm:text-3xl text-xl rounded-lg bg-blue-400 drop-shadow-lg hover:scale-110 hover:border-amber-300"
+                            >
+                                CONTINUAR CON LA COMPRA
+                            </button>
                         </div>
                     </Link>
                 </div> 
                 
                 : 
+                
+                <div className="sm:pb-10 pb-5 sm:mt-24 mt-32 shadow-2xl border-black rounded-2xl border-2">  
 
-                <div className="shadow-2xl border-black rounded-2xl border-2">  
-                    <h2 className="text-3xl text-black m-10 border-y-2 border-black p-16 mt-28">¡AUN NO HA AGREGADO PRODUCTOS EN EL CARRITO!</h2>
+                    <h2 
+                        className="sm:text-3xl text-sm text-black sm:m-10 m-5 border-y border-black sm:p-16 py-5 sm:mt-28 mt-16">
+                        ¡AUN NO HA AGREGADO PRODUCTOS EN EL CARRITO!
+                    </h2>
 
                     <Link to={'/'}>
-                        <button className="p-5 text-black text-3xl m-10 rounded-lg bg-blue-400 border-black">
+                        <button 
+                            className="transition ease-in-out delay-150 p-5 text-black sm:text-3xl text-xl rounded-lg bg-blue-400 border-black drop-shadow-lg hover:scale-110">
                             VER PRODUCTOS
                         </button>
                     </Link>

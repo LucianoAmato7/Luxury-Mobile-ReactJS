@@ -5,7 +5,7 @@ import Item from "./Item";
 const ItemList = ({items, brand}) => { 
     return(
         <>
-            <h2 className="text-black text-6xl italic underline">{brand}</h2>
+            <h2 className="text-black text-5xl italic underline uppercase"> { brand } </h2>
             <div className='justify-around flex flex-row flex-wrap mt-20 mx-20'>
 
 

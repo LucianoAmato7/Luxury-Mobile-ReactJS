@@ -6,10 +6,32 @@ const Form = ( { FormFn } ) => {
 
     return (
 
-        <div className="flex flex-col mt-12 justify-between lg:ml-60 text-black text-xl p-10 w-2/5 text-center bg-blue-800 bg-opacity-50 rounded-3xl shadow-2xl">
+        <div 
+            className="
+            flex 
+            flex-col 
+            sn:mt-12 
+            mt-10 
+            m-auto 
+            xl:mb-0
+            mb-10
+            justify-between 
+            text-black 
+            xl:text-xl 
+            text-sm 
+            xl:p-8 
+            p-5 
+            xl:w-2/5 
+            w-4/5 
+            text-center 
+            bg-blue-800 
+            bg-opacity-50 
+            rounded-3xl 
+            shadow-2xl"
+        >
 
-            <h2 className="text-black lg:text-2xl md:text-xl mb-6">
-                ¡ Completa el formulario para finalizar la compra !
+            <h2 className="text-black xl:text-xl md:text-xl mb-6">
+                ¡Completa el formulario para finalizar la compra!
             </h2>
 
             <form onSubmit={  (e) => { SendOrder(e) } }>
@@ -36,8 +58,24 @@ const Form = ( { FormFn } ) => {
 
                 <div className="flex justify-content-between">
 
-                    <button className="hover:scale-110 text-4xl text-black border-black p-3 m-5 rounded-lg bg-blue-400 drop-shadow-lg">
+                    <button 
+                        className="
+                        transition 
+                        ease-in-out 
+                        delay-15 
+                        hover:scale-110 
+                        xl:text-4xl 
+                        text-xl 
+                        text-black 
+                        p-2 
+                        xl:m-5 
+                        m-0 
+                        rounded-lg 
+                        bg-blue-400 
+                        drop-shadow-lg">
+
                         COMPRAR
+                        
                     </button>
 
                 </div>

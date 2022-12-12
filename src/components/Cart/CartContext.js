@@ -35,8 +35,8 @@ const CartProvider = ( {children} ) => {
 
         if ( cart.some( p => p.id === item.id) ) {   
 
-            toast.warn('! Ya se encuentra en carrito !', {
-                position: "bottom-right",
+            toast.warning('! Ya se encuentra en carrito !', {
+                position: "top-right",
                 autoClose: 2000,
                 hideProgressBar: true,
                 closeOnClick: true,
@@ -52,7 +52,7 @@ const CartProvider = ( {children} ) => {
             setCart( cart => cart.concat( {...item, quantity: counter } ) )
 
             toast.success('¡ Producto agregado ! ', {
-                position: "bottom-right",
+                position: "top-right",
                 autoClose: 2000,
                 hideProgressBar: true,
                 closeOnClick: true,

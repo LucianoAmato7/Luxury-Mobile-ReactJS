@@ -63,7 +63,7 @@ const ItemListContainer = ({greeting}) => {
 
         <div>
 
-            <h1 className="text-5xl mt-16 text-black underline italic">{greeting}</h1>
+            <h1 className="sm:text-3xl text-2xl mt-16 text-black underline italic uppercase">{greeting}</h1>
 
             {loading ?  
 

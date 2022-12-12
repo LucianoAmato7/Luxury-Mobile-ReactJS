@@ -37,7 +37,7 @@ const ItemDetailContainer = () => {
 
     return(
 
-        <div>
+        <div className="py-10">
             {loading ? 
 
                 <div className='flex justify-center mt-80'>

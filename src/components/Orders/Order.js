@@ -86,33 +86,77 @@ const Order = () => {
 
             <div> 
                 
-                <div className="flex flex-row pb-20">
+                <div className="flex xl:flex-row flex-col xl:pb-20 pb-12 xl:px-52 p-0">
 
                     <Form FormFn={ FormFn }  />
 
                         
-                    <Link to='/cart' className="shadow-2xl hover:scale-110 self-center flex flex-col mt-5 justify-between lg:mr-60 lg:ml-20 text-black text-xl p-7 w-2/5 h-min text-center bg-black bg-opacity-25 rounded-3xl">
+                    <Link to='/cart' 
+                        className="
+                        transition 
+                        ease-in-out 
+                        delay-150
+                        m-auto
+                        text-xl 
+                        xl:p-7
+                        p-3 
+                        xl:w-2/5 
+                        w-11/12  
+                        h-min 
+                        shadow-2xl 
+                        xl:hover:scale-125 
+                        hover:scale-105
+                        self-center 
+                        flex 
+                        flex-col 
+                        justify-between 
+                        text-black text-center 
+                        bg-black 
+                        bg-opacity-25 
+                        rounded-3xl">
+
 
                         { cart.map( p =>  
                             
-                            <li key={p.img} className="flex flex-row justify-between text-black text-lg items-center">
+                            <li key={p.img} 
+
+                                className="
+                                xl:text-xl 
+                                text-base 
+                                flex 
+                                flex-row 
+                                justify-between 
+                                text-black 
+                                items-center 
+                                xl:mb-2 
+                                mb-4">
     
                                 <img src={p.img} alt={p.name} className='w-1/6'/>
 
                                 <div className="flex flex-col">
-                                    <p className="text-xl"> <strong> {p.brand} </strong> </p>
+                                    <p> <strong> {p.brand} </strong> </p>
                                     <p>{p.name}</p>
                                 </div>    
 
-                                <span className="text-xl">{p.quantity} u.</span>
+                                <span>{p.quantity} u.</span>
 
-                                <span className="text-xl">${format(p.price)}</span>
+                                <span>${format(p.price)}</span>
 
                             </li>
 
                         ) }
 
-                        <div className="text-black text-2xl border-t-2 border-black mt-5 flex flex-row justify-between pt-5">
+                        <div 
+                            className="
+                            text-black 
+                            xl:text-2xl 
+                            text-xl 
+                            border-t-2 
+                            border-black  
+                            flex 
+                            flex-row 
+                            justify-between 
+                            pt-5">
 
                             <span >TOTAL:</span>
 

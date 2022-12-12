@@ -31,7 +31,7 @@ const ItemDetail = ({item}) => {
 
     return(
 
-        <div className="bg-white my-3 border rounded-xl lg:w-2/5 md:w-1/2 sm:w-4/5 mx-auto shadow-2xl">
+        <div className="bg-white m-auto border rounded-xl lg:w-2/5 md:w-1/2 sm:w-5/6 w-11/12 shadow-2xl">
 
             <div className="m-2 flex flex-col justify-center">
 
@@ -41,7 +41,7 @@ const ItemDetail = ({item}) => {
 
             </div> 
 
-            <img className="w-1/3 flex m-auto mt-2" src={item.img} alt={item.name}>{}</img>
+            <img className="w-1/3 flex m-auto mt-2" src={item.img} alt={item.name}></img>
 
             <Specs item={item} />
 
@@ -49,11 +49,11 @@ const ItemDetail = ({item}) => {
         
                 <ItemCount CounterHide={CounterHide} AddtoCart={AddtoCart} item={item}/> :
 
-                <div className="flex flex-row text-xl text-black justify-center">
+                <div className="sm:flex-row flex flex-col text-xl text-black justify-center itemD">
                 
                     <Link to='/' onClick={keepBuying}>   
 
-                        <button className="m-5 py-1.5 px-7 bg-blue-400 drop-shadow-2xl rounded-md border border-amber-300 hover:scale-110">
+                        <button className="transition ease-in-out delay-150 text-lg sm:text-xl m-4 py-1.5 px-3 bg-blue-400 drop-shadow-2xl rounded-md hover:border-amber-300 border-2 hover:scale-110">
                             Seguir comprando
                         </button>
 
@@ -61,7 +61,7 @@ const ItemDetail = ({item}) => {
 
                     <Link to={'/cart'}>
 
-                        <button className="m-5 py-1.5 px-7 bg-blue-400 drop-shadow-2xl rounded-md border border-amber-300 hover:scale-110">
+                        <button className="transition ease-in-out delay-150 text-lg sm:text-xl m-4 py-1.5 px-3 bg-blue-400 drop-shadow-2xl rounded-md border hover:border-amber-300 hover:scale-110">
                             Terminar mi compra
                         </button>
 

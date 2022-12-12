@@ -48,7 +48,7 @@ function ItemCount({ item, CounterHide, AddtoCart }) {
         if ( IsInCart(id) ) {
 
             toast.success('! Ya se encuentra en carrito ¡', {
-                position: "bottom-right",
+                position: "top-right",
                 autoClose: 2000,
                 hideProgressBar: true,
                 closeOnClick: true,
@@ -61,7 +61,7 @@ function ItemCount({ item, CounterHide, AddtoCart }) {
         } else {
 
             toast.warning('! No se encuentra en carrito ¡', {
-                position: "bottom-right",
+                position: "top-right",
                 autoClose: 2000,
                 hideProgressBar: true,
                 closeOnClick: true,
@@ -98,11 +98,50 @@ function ItemCount({ item, CounterHide, AddtoCart }) {
 
         <div className='flex flex-col mt-5'> 
 
-            <button onClick={ OnAdd } className='mb-3 py-1.5 px-7 bg-blue-400 text-black drop-shadow-2xl rounded-md border border-amber-300 text-2xl w-1/2 mx-auto hover:scale-110'>
+            <button 
+                onClick={ OnAdd } 
+                className='
+                transition 
+                ease-in-out 
+                delay-150 
+                text-xl 
+                sm:text-2xl 
+                mb-3 
+                py-1.5 
+                px-4 
+                bg-blue-400 
+                text-black 
+                drop-shadow-2xl 
+                rounded-md 
+                hover:border-amber-300 
+                border-2 
+                mx-auto 
+                hover:scale-110'
+            >
                 Agregar al carrito
             </button>
 
-            <button onClick={ (e) => {IsInCartHandler(e, item.id)} } className='mb-3 py-1.5 px-5 bg-blue-400 text-black drop-shadow-2xl rounded-md border border-amber-300 text-xl w-auto mx-auto hover:scale-110'>
+            <button 
+                onClick={ (e) => {IsInCartHandler(e, item.id)} } 
+                className='
+                transition 
+                ease-in-out 
+                delay-150 
+                text-xl 
+                sm:text-2xl 
+                mb-3 
+                py-1.5 
+                px-5 
+                bg-blue-400 
+                text-black 
+                drop-shadow-2xl 
+                rounded-md 
+                border 
+                hover:border-amber-300 
+                w-auto 
+                mx-auto 
+                hover:scale-110'
+            >
                 ¿ Se encuentra en carrito ?
             </button>
 

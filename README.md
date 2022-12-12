@@ -6,7 +6,7 @@ Aplicación desplegada en Netlify [Luxury Mobile](https://luxurymobile.netlify.a
 
 Se ha utilizado el servicio de `Firestore Database` que brinda `Firebase` para la creación de una colección de productos y ordenes de compra que interactual dinamicamente con la aplicación.
 
-El diseño `Responsive` de la aplicación aún se encuentra en desarrollo, por lo cual su visualización solo será óptima en dispositivos con resoluciones iguales o mayores a 1024x600px.
+El diseño `Responsive` de la aplicación se realizo en su mayoría con `Tailwind Css`. También se utilizo `CSS`.
 
 
 ### `Dependencias utilizadas`
@@ -22,6 +22,7 @@ El diseño `Responsive` de la aplicación aún se encuentra en desarrollo, por l
 `bootstrap:` 5.2.1,
 `bootstrap-icons:` 1.9.1,
 `daisyui:` 2.28.0,
+`aos:` 2.3.4,
 `firebase`: 9.12.1,
 `react:` 18.2.0,
 `react-bootstrap:` 2.5.0,
