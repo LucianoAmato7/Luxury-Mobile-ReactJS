@@ -31,6 +31,7 @@ El diseño `Responsive` de la aplicación se realizo en su mayoría con `Tailwin
 `react-router-dom:` 6.4.1,
 `react-scripts:` 5.0.1,
 `react-toastify:` 9.0.8,
+`react-slick:` 0.29.0,
 `reactstrap:` 9.1.4,
 `web-vitals:` 2.1.4
 

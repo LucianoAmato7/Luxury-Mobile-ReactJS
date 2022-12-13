@@ -3,6 +3,9 @@ import ItemList from './ItemList'
 import { useParams } from 'react-router-dom'
 import { DotSpinner } from '@uiball/loaders'
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
+import '../../styles/titles.css'
+import SimpleSlider from '../Carousel-Slick'
+
 
 
 const ItemListContainer = ({greeting}) => {
@@ -26,8 +29,6 @@ const ItemListContainer = ({greeting}) => {
 
         const prodsRef = collection( db, 'products')
         
-        //SOLO SI SE RECIBE EL PARAMETRO DE CATEGORIA LO UTILIZA EN UN WHERE. DE LO CONTRARIO NO APLICA EL FILTRO.
-
         if (brandId) {
             
             const prodsFilter = query( prodsRef, where( 'brand', '==' , brandId ) ) 
@@ -58,12 +59,15 @@ const ItemListContainer = ({greeting}) => {
         }
 
     }
+
     
     return(
 
         <div>
 
-            <h1 className="sm:text-3xl text-2xl mt-16 text-black underline italic uppercase">{greeting}</h1>
+            <SimpleSlider/>
+
+            <h1 className="title sm:text-3xl text-lg mt-16 underline italic uppercase">{greeting}</h1>
 
             {loading ?  
 

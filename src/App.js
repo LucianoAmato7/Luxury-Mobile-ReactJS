@@ -8,7 +8,6 @@ import { CartProvider } from './components/Cart/CartContext';
 import Order from './components/Orders/Order';
 
 
-
 function App() {
 
   return (

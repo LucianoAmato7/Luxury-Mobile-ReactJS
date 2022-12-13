@@ -30,7 +30,7 @@ const NavBar = () => {
 
   return (
   
-    <nav className="navbar text-white italic top-0 bg-black p-3">
+    <nav className="navbar text-white italic top-0 bg-black p-3 shadow-xl">
 
       <div className="flex-1">
 

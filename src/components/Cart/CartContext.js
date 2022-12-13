@@ -69,7 +69,7 @@ const CartProvider = ( {children} ) => {
     const RemoveItem = ( id ) => {
 
         setCart( cart.filter(p => p.id !== id) )
-    
+
     }
 
 

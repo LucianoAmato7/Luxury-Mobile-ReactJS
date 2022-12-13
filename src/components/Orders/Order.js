@@ -4,10 +4,16 @@ import { Link } from "react-router-dom"
 import { CartContext } from "../Cart/CartContext"
 import Form from "./Form"
 import Success from "./Success"
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 
 const Order = () => { 
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
 
     const { cart, Total, setCart, format } = useContext(CartContext)
 
@@ -86,7 +92,7 @@ const Order = () => {
 
             <div> 
                 
-                <div className="flex xl:flex-row flex-col xl:pb-20 pb-12 xl:px-52 p-0">
+                <div className="flex xl:flex-row flex-col xl:pb-20 pb-12 xl:px-52 p-0" data-aos="zoom-in">
 
                     <Form FormFn={ FormFn }  />
 

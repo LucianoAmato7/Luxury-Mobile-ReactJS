@@ -1,12 +1,18 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../Cart/CartContext";
 import ItemCount from "./ItemCount";
 import Specs from "./Specs";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const ItemDetail = ({item}) => {
    
+    useEffect(() => {
+        AOS.init();
+    }, [])
+
     const [loading, setLoading] = useState(true)
 
     const CounterHide = () => { setLoading(false) }
@@ -31,7 +37,7 @@ const ItemDetail = ({item}) => {
 
     return(
 
-        <div className="bg-white m-auto border rounded-xl lg:w-2/5 md:w-1/2 sm:w-5/6 w-11/12 shadow-2xl">
+        <div className="bg-white m-auto border rounded-xl lg:w-2/5 md:w-1/2 sm:w-5/6 w-11/12 shadow-2xl" data-aos="zoom-in">
 
             <div className="m-2 flex flex-col justify-center">
 

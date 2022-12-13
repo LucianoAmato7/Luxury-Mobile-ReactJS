@@ -1,9 +1,17 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { CartContext } from "./CartContext";
 import { BsTrashFill  } from 'react-icons/bs';
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const Cart = () => {
+    
+    useEffect(() => {
+        AOS.init();
+    }, [])
+
 
     const { cart, RemoveItem, Clear, Total, format } = useContext(CartContext)
 
@@ -26,7 +34,7 @@ const Cart = () => {
 
     return(
         
-        <div className="lg:mx-40 mx-4">
+        <div className="lg:mx-40 mx-4" data-aos="zoom-in">
             
             { cart.length > 0 ?
 

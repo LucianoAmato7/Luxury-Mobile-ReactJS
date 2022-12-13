@@ -32,7 +32,7 @@ const Success = ( {id} ) => {
             justify-between"
             data-aos="zoom-in">
 
-            <h3 className="xl:text-5xl text-xl italic mb-2">¡ COMPRA REALIZADA CON ÉXITO !</h3>
+            <h3 className="xl:text-5xl text-lg italic mb-2">¡ COMPRA REALIZADA CON ÉXITO !</h3>
         
             <MdOutlineTaskAlt className="self-center text-9xl text-success m-8"/>
             

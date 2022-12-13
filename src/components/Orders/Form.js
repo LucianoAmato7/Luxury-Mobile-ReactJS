@@ -1,6 +1,12 @@
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const Form = ( { FormFn } ) => {
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
 
     const { SendOrder, setName, setEmail, setPhone, setAddres } = FormFn
 
@@ -28,6 +34,7 @@ const Form = ( { FormFn } ) => {
             bg-opacity-50 
             rounded-3xl 
             shadow-2xl"
+            data-aos="zoom-in"
         >
 
             <h2 className="text-black xl:text-xl md:text-xl mb-6">
