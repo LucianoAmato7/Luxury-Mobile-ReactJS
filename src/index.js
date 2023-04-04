@@ -1,29 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import { initializeApp } from "firebase/app";
 
-
 const firebaseConfig = {
-  apiKey: "AIzaSyA0Eh5Q-mqN6e-kgD0Hgm1X3OLztYmZHB0",
-  authDomain: "coderhouse-ecommerce-rea-f5eb2.firebaseapp.com",
-  projectId: "coderhouse-ecommerce-rea-f5eb2",
-  storageBucket: "coderhouse-ecommerce-rea-f5eb2.appspot.com",
-  messagingSenderId: "955160523229",
-  appId: "1:955160523229:web:c1fd4ad7af891043f00634"
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHODOMAIN,
+  projectId: process.env.REACT_APP_PROJECTI,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
 };
 
 // eslint-disable-next-line
 const app = initializeApp(firebaseConfig);
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
-    <App />
-  // </React.StrictMode> 
+  <App />
+  // </React.StrictMode>
 );
-
 reportWebVitals();
